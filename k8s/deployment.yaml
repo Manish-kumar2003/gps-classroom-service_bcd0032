@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: gps-classroom-container
-          image: gps-classroom-service:1.0
-          imagePullPolicy: IfNotPresent
+          image: manish23bcd32/gps-classroom-service:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
           env:
