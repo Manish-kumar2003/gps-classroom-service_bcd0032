@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gps-classroom-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gps-classroom
+  template:
+    metadata:
+      labels:
+        app: gps-classroom
+    spec:
+      containers:
+        - name: gps-classroom-container
+          image: gps-classroom-service:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          env:
+            - name: CLASSROOM_NAME
+              value: "AA103"
+            - name: BUILDING
+              value: "Academic Block-1"
+            - name: LATITUDE
+              value: "9.754998007386021"
+            - name: LONGITUDE
+              value: "76.6502343174669"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 15
