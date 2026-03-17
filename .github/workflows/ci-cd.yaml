@@ -59,3 +59,4 @@ jobs:
 
       - name: Verify rollout
         run: kubectl rollout status deployment/gps-classroom-deployment
+  
