@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: gps-classroom-container
-          image: ${{secrets.DOCKERHUB_USERNAME}}/gps-classroom-service:latest
+          image: manish23bcd32/gps-classroom-service:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000

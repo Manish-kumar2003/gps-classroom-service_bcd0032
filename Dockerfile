@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package.json ./
 RUN npm install --omit=dev
 
-COPY app.js ./
+COPY . .
 
 EXPOSE 3000
 

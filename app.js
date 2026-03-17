@@ -5,10 +5,10 @@ const app = express();
 const port = 3000;
 
 // Classroom GPS values
-const classroomName = "AA103";
-const latitude = "9.754998007386021";
-const longitude = "76.6502343174669";
-const building = "Academic Block-1";
+const classroomName = process.env.CLASSROOM_NAME;;
+const latitude = process.env.LATITUDE;
+const longitude = process.env.LONGITUDE;
+const building = process.env.BUILDING;
 
 // Prometheus default metrics
 client.collectDefaultMetrics();
